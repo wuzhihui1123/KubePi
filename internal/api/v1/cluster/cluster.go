@@ -341,14 +341,13 @@ func (h *Handler) SearchClusters() iris.Handler {
 }
 
 func mask(clusters []Cluster) []Cluster {
-	result := make([]Cluster, len(clusters))
+	result := make([]Cluster, 0, len(clusters))
 	for _, clu := range clusters {
 		clu.Spec.Authentication.Certificate.KeyData = ([]byte)("***")
 		clu.Spec.Authentication.Certificate.CertData = ([]byte)("***")
 		clu.Spec.Authentication.BearerToken = "***"
 		clu.Spec.Authentication.ConfigFileContent = ([]byte)("***")
 		result = append(result, clu)
-
 	}
 	return result
 }
