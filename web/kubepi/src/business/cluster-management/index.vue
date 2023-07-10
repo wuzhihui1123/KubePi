@@ -15,7 +15,7 @@
       </el-table-column>
 
 
-      <el-table-column :label="$t('business.cluster.label')" align="left" min-width="160" fix>
+      <el-table-column :label="$t('business.cluster.label')" align="left" min-width="120" fix>
         <template v-slot:default="{row}">
           <div style="font-size: 20px">
             <div v-if="row.labels" :key="row.k">
@@ -63,11 +63,11 @@
       </el-table-column>
 
 
-      <el-table-column :label="$t('business.cluster.nodes')" min-width="80" fix>
+      <el-table-column :label="$t('business.cluster.nodes')" min-width="120" fix>
         <template v-slot:default="{row}">
             <el-tag v-if="row.extraClusterInfo.health">{{ row.extraClusterInfo.readyNodeNum }} / {{ row.extraClusterInfo.totalNodeNum }}</el-tag>
             <el-tooltip v-else class="item" effect="dark" :content="row.extraClusterInfo.message" placement="right">
-                <el-tag type="warning">{{ $t("commons.status.Unknown") }}</el-tag>
+                <el-tag type="warning">Unknown</el-tag>
             </el-tooltip>
         </template>
       </el-table-column>
