@@ -15,7 +15,6 @@ require (
 	github.com/go-logr/logr v0.4.0
 	github.com/gofrs/flock v0.8.1
 	github.com/golang/snappy v0.0.4 // indirect
-	github.com/google/go-cmp v0.5.6 // indirect
 	github.com/google/uuid v1.2.0
 	github.com/imdario/mergo v0.3.12 // indirect
 	github.com/iris-contrib/swagger/v12 v12.0.1
@@ -24,6 +23,7 @@ require (
 	github.com/onsi/gomega v1.15.0 // indirect
 	github.com/pkg/errors v0.9.1
 	github.com/prometheus/common v0.29.0 // indirect
+	github.com/showa-93/go-mask v0.6.0
 	github.com/sirupsen/logrus v1.8.1
 	github.com/skip2/go-qrcode v0.0.0-20200617195104-da1b6568686e
 	github.com/spf13/cobra v1.2.1
@@ -36,7 +36,7 @@ require (
 	golang.org/x/text v0.3.7
 	google.golang.org/protobuf v1.27.1 // indirect
 	gopkg.in/igm/sockjs-go.v2 v2.1.0
-	gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b
+	gopkg.in/yaml.v3 v3.0.1
 	helm.sh/helm/v3 v3.7.0
 	k8s.io/api v0.22.2
 	k8s.io/apiextensions-apiserver v0.22.2
