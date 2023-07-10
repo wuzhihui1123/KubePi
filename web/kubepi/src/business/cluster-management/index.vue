@@ -10,8 +10,7 @@
       <el-table-column type="selection" fix></el-table-column>
       <el-table-column :label="$t('commons.table.name')" prop="name" min-width="140px" show-overflow-tooltip fix>
         <template v-slot:default="{row}">
-          <span v-if="row.extraClusterInfo.health" class="span-link" @click="onGotoDashboard(row)">{{ row.name }}</span>
-          <span v-else>{{ row.name }}</span>
+          <span >{{ row.name }}</span>
         </template>
       </el-table-column>
 
@@ -193,7 +192,7 @@ export default {
             this.onDetail(row.name)
           },
           disabled: (row) => {
-            return !(checkPermissions({resource: "clusters", verb: "authorization"}) && row.extraClusterInfo.health)
+            return !(checkPermissions({resource: "clusters", verb: "authorization"}))
           }
         },
         {
