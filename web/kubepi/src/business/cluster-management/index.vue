@@ -67,7 +67,7 @@
         <template v-slot:default="{row}">
             <el-tag v-if="row.extraClusterInfo.health">{{ row.extraClusterInfo.readyNodeNum }} / {{ row.extraClusterInfo.totalNodeNum }}</el-tag>
             <el-tooltip v-else class="item" effect="dark" :content="row.extraClusterInfo.message" placement="right">
-                <el-tag type="warning">{{ $t('commons.status.Unknown') }}</el-tag>
+                <el-tag type="warning">{{ $t("commons.status.Unknown") }}</el-tag>
             </el-tooltip>
         </template>
       </el-table-column>
