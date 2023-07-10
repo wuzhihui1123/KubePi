@@ -10,7 +10,7 @@
       <el-table-column type="selection" fix></el-table-column>
       <el-table-column :label="$t('commons.table.name')" prop="name" min-width="140px" show-overflow-tooltip fix>
         <template v-slot:default="{row}">
-          <span >{{ row.name }}</span>
+            <span class="span-link" @click="onGotoDashboard(row)">{{ row.name }}</span>
         </template>
       </el-table-column>
 
