@@ -33,7 +33,7 @@ type SSLConfig struct {
 }
 
 type LoggerConfig struct {
-	Level string
+	Level string `json:"level"`
 }
 
 type DBConfig struct {
