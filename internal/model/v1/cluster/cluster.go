@@ -38,9 +38,9 @@ type Proxy struct {
 
 type Authentication struct {
 	Mode              string      `json:"mode"`
-	BearerToken       string      `json:"bearerToken" mask:"fixed"`
-	Certificate       Certificate `json:"certificate" mask:"fixed" storm:"inline"`
-	ConfigFileContent []byte      `json:"configFileContent" mask:"fixed"`
+	BearerToken       string      `json:"bearerToken"`
+	Certificate       Certificate `json:"certificate" storm:"inline"`
+	ConfigFileContent []byte      `json:"configFileContent"`
 }
 
 type Certificate struct {

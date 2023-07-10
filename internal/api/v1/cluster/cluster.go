@@ -26,7 +26,6 @@ import (
 	"github.com/asdine/storm/v3"
 	"github.com/kataras/iris/v12"
 	"github.com/kataras/iris/v12/context"
-	"github.com/showa-93/go-mask"
 	authV1 "k8s.io/api/authorization/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
@@ -335,11 +334,25 @@ func (h *Handler) SearchClusters() iris.Handler {
 
 			<-ctx1.Done()
 		}
-		//数据脱敏
-		maskResult, _ := mask.NewMasker().Mask(result)
+		//data masking
+		maskResult := mask(result)
 		ctx.Values().Set("data", pkgV1.Page{Items: maskResult, Total: total})
 	}
 }
+
+func mask(clusters []Cluster) []Cluster {
+	result := make([]Cluster, len(clusters))
+	for _, clu := range clusters {
+		clu.Spec.Authentication.Certificate.KeyData = ([]byte)("***")
+		clu.Spec.Authentication.Certificate.CertData = ([]byte)("***")
+		clu.Spec.Authentication.BearerToken = "***"
+		clu.Spec.Authentication.ConfigFileContent = ([]byte)("***")
+		result = append(result, clu)
+
+	}
+	return result
+}
+
 func getExtraClusterInfo(context goContext.Context, client kubernetes.Interface) (ExtraClusterInfo, error) {
 	err := client.Ping()
 	if err != nil {
