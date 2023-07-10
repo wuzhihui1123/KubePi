@@ -8,15 +8,6 @@
                    :pagination-config="paginationConfig" @search="search"
                    element-loading-background="rgba(0, 0, 0, 0.8)">
       <el-table-column type="selection" fix></el-table-column>
-      <el-table-column :label="$t('commons.table.status')" min-width="80px" fix style="display: none">
-        <template v-slot:default="{row}">
-          <el-tag type="success" v-if="row.extraClusterInfo.health">{{ $t('business.cluster.ready') }}</el-tag>
-          <el-tooltip class="item" effect="dark" :content="row.extraClusterInfo.message" placement="right">
-            <el-tag type="danger" v-if="!row.extraClusterInfo.health">{{ $t('business.cluster.not_ready') }}</el-tag>
-          </el-tooltip>
-        </template>
-      </el-table-column>
-
       <el-table-column :label="$t('commons.table.name')" prop="name" min-width="140px" show-overflow-tooltip fix>
         <template v-slot:default="{row}">
           <span v-if="row.extraClusterInfo.health" class="span-link" @click="onGotoDashboard(row)">{{ row.name }}</span>
@@ -77,7 +68,7 @@
         <template v-slot:default="{row}">
             <el-tag v-if="row.extraClusterInfo.health">{{ row.extraClusterInfo.readyNodeNum }} / {{ row.extraClusterInfo.totalNodeNum }}</el-tag>
             <el-tooltip v-else class="item" effect="dark" :content="row.extraClusterInfo.message" placement="right">
-                <el-tag type="warning">$t('commons.status.Unknown')</el-tag>
+                <el-tag type="warning">{{ $t('commons.status.Unknown') }}</el-tag>
             </el-tooltip>
         </template>
       </el-table-column>
