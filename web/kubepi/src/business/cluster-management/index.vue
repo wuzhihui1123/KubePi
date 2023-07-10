@@ -191,7 +191,7 @@ export default {
           click: (row) => {
             this.onDetail(row.name)
           },
-          disabled: (row) => {
+          disabled: () => {
             return !(checkPermissions({resource: "clusters", verb: "authorization"}))
           }
         },
